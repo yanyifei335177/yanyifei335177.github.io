@@ -13,30 +13,20 @@
          * ========================================= */
         :root {
             --primary-blue: #2563EB;
-            /* 主色调：现代蓝 */
             --dark-blue: #1E3A8A;
-            /* 深蓝 */
             --light-bg: #F3F4F6;
-            /* 整体浅灰背景 */
             --card-bg: #FFFFFF;
-            /* 卡片纯白背景 */
             --text-main: #1F2937;
-            /* 主要文字颜色 */
             --text-sub: #6B7280;
-            /* 辅助文字颜色 */
             --accent-pink: #EC4899;
-            /* 强调色：粉 */
             --accent-yellow: #F59E0B;
-            /* 强调色：黄 */
             --accent-green: #10B981;
-            /* 强调色：绿 */
+            --accent-purple: #8B5CF6;
         }
 
-        /* 开启平滑滚动，用于锚点定位 */
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
-            /* 防止导航栏遮挡标题 */
         }
 
         body {
@@ -54,15 +44,14 @@
             transition: color 0.3s;
         }
 
-        /* 容器居中与限制宽度 */
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         /* =========================================
-         * 2. 顶部吸顶导航栏 (参考截图设计)
+         * 2. 顶部吸顶导航栏
          * ========================================= */
         .navbar {
             position: fixed;
@@ -111,11 +100,10 @@
         }
 
         /* =========================================
-         * 3. 头部 Hero 区域 (深蓝渐变)
+         * 3. 头部 Hero 区域
          * ========================================= */
         .hero-section {
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            /* 深邃学术渐变 */
             color: white;
             padding: 120px 20px 60px;
             text-align: center;
@@ -181,7 +169,7 @@
         }
 
         /* =========================================
-         * 4. 通用模块标题与卡片样式
+         * 4. 通用卡片样式
          * ========================================= */
         .section-title {
             font-size: 1.8em;
@@ -214,7 +202,6 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        /* 标签样式 */
         .tag {
             display: inline-block;
             background-color: #EFF6FF;
@@ -229,10 +216,8 @@
         }
 
         /* =========================================
-         * 5. 各专属模块精细化样式
+         * 5. 各专属模块样式
          * ========================================= */
-
-        /* 关于我模块：网格布局 */
         .about-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -275,7 +260,7 @@
             font-size: 0.9em;
         }
 
-        /* 教育背景 (保留原有精美样式，微调适应卡片) */
+        /* 教育背景 */
         .edu-header {
             display: flex;
             align-items: center;
@@ -348,22 +333,6 @@
             border-radius: 3px;
         }
 
-        .awards-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .awards-list li {
-            margin-bottom: 6px;
-            font-size: 0.95em;
-        }
-
-        .awards-list li::before {
-            content: "🏅";
-            margin-right: 5px;
-        }
-
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -389,7 +358,7 @@
             margin-left: auto;
         }
 
-        /* 项目经历模块 */
+        /* 项目经历 */
         .project-item {
             border: 1px solid #E5E7EB;
             border-radius: 12px;
@@ -448,10 +417,10 @@
             font-weight: bold;
         }
 
-        /* 获奖情况模块 (参考截图双栏设计) */
+        /* 获奖情况模块 */
         .awards-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -462,6 +431,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            font-weight: bold;
         }
 
         .award-box {
@@ -472,6 +442,31 @@
             border-radius: 10px;
             margin-bottom: 12px;
             font-weight: 500;
+            gap: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .award-box span:first-child {
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+
+        .award-subtitle {
+            display: block;
+            font-size: 0.85em;
+            margin-top: 3px;
+            font-weight: normal;
+        }
+
+        .award-badge {
+            font-size: 0.8em;
+            padding: 4px 10px;
+            border-radius: 12px;
+            color: white;
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .award-box.national {
@@ -480,35 +475,49 @@
             color: #92400E;
         }
 
-        /* 暖色调 */
-        .award-box.provincial {
-            background-color: #EFF6FF;
-            border: 1px solid #DBEAFE;
-            color: #1E40AF;
-        }
-
-        /* 冷色调 */
-        .award-badge {
-            font-size: 0.8em;
-            padding: 3px 8px;
-            border-radius: 12px;
-            color: white;
-            font-weight: normal;
+        .award-box.national .award-subtitle {
+            color: #B45309;
         }
 
         .award-badge.nat-badge {
             background-color: var(--accent-yellow);
         }
 
+        .award-box.provincial {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .award-box.provincial .award-subtitle {
+            color: #3B82F6;
+        }
+
         .award-badge.pro-badge {
             background-color: var(--primary-blue);
         }
 
+        .award-box.university {
+            background-color: #F5F3FF;
+            border: 1px solid #EDE9FE;
+            color: #5B21B6;
+        }
+
+        .award-box.university .award-subtitle {
+            color: #8B5CF6;
+        }
+
+        .award-badge.uni-badge {
+            background-color: var(--accent-purple);
+        }
+
         /* 响应式设计 */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
 
             .about-grid,
-            .awards-grid,
             .courses-grid,
             .edu-stats-container {
                 grid-template-columns: 1fr;
@@ -521,7 +530,6 @@
 
             .nav-links {
                 display: none;
-                /* 手机端可暂藏导航链接或做汉堡菜单 */
             }
 
             .project-header {
@@ -539,7 +547,7 @@
             <a href="#about"><i class="fas fa-user"></i> 关于我</a>
             <a href="#education"><i class="fas fa-graduation-cap"></i> 教育背景</a>
             <a href="#projects"><i class="fas fa-laptop-code"></i> 项目经历</a>
-            <a href="#awards"><i class="fas fa-trophy"></i> 获奖情况</a>
+            <a href="#awards"><i class="fas fa-trophy"></i> 荣誉奖项</a>
             <a href="#skills"><i class="fas fa-cogs"></i> 技能清单</a>
         </div>
     </nav>
@@ -605,28 +613,47 @@
                         <div class="gpa-progress-bar" style="width: 90.176%;"></div>
                     </div>
                 </div>
+
                 <div class="edu-stat-item">
-                    <div class="stat-header"><i class="fas fa-award" style="color:var(--accent-yellow)"></i> 荣誉奖项</div>
-                    <ul class="awards-list">
-                        <li>校级学业奖学金</li>
-                        <li>创新创业奖学金</li>
-                        <li>校级三好学生</li>
-                    </ul>
+                    <div class="stat-header"><i class="fas fa-language" style="color:var(--primary-blue)"></i> 外语水平
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-weight: bold; color: var(--text-main);">大学英语六级 (CET-6)</span>
+                            <span style="color: var(--primary-blue); font-weight: bold;">455</span>
+                        </div>
+                        <div class="gpa-progress-bar-container"
+                            style="margin-top: 0; margin-bottom: 15px; height: 5px;">
+                            <div class="gpa-progress-bar"
+                                style="width: 62.8%; background: linear-gradient(to right, #60a5fa, var(--primary-blue));">
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span style="font-weight: bold; color: var(--text-main);">大学英语四级 (CET-4)</span>
+                            <span style="color: var(--primary-blue); font-weight: bold;">527</span>
+                        </div>
+                        <div class="gpa-progress-bar-container" style="margin-top: 0; height: 5px;">
+                            <div class="gpa-progress-bar"
+                                style="width: 72.7%; background: linear-gradient(to right, #60a5fa, var(--primary-blue));">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3 style="margin-top: 20px; color: var(--text-main); font-size: 1.1em;"><i class="fas fa-book-open"
+            <h3 style="margin-top: 25px; color: var(--text-main); font-size: 1.1em;"><i class="fas fa-book-open"
                     style="color:var(--primary-blue)"></i> 核心课程</h3>
             <div class="courses-grid">
                 <div class="course-item"><i class="fas fa-calculator"
-                        style="color:var(--primary-blue); margin-right:10px;"></i> 算法设计与分析 <span
-                        class="course-score-box">95</span></div>
+                        style="color:var(--primary-blue); margin-right:10px;"></i> C++程序设计 <span
+                        class="course-score-box">96</span></div>
                 <div class="course-item"><i class="fas fa-code"
                         style="color:var(--primary-blue); margin-right:10px;"></i> 编译原理 <span
                         class="course-score-box">95</span></div>
                 <div class="course-item"><i class="fas fa-microchip"
-                        style="color:var(--primary-blue); margin-right:10px;"></i> 汇编语言 <span
-                        class="course-score-box">95</span></div>
+                        style="color:var(--primary-blue); margin-right:10px;"></i> 软件工程 <span
+                        class="course-score-box">94</span></div>
                 <div class="course-item"><i class="fas fa-server"
                         style="color:var(--primary-blue); margin-right:10px;"></i> 计算机组成原理 <span
                         class="course-score-box">93</span></div>
@@ -639,7 +666,7 @@
             <div class="project-item">
                 <div class="project-header">
                     <h3 class="project-title">Mini-Kernel：用户态微内核仿真系统</h3>
-                    <span class="project-role">独立开发</span>
+                    <!-- <span class="project-role">独立开发</span> -->
                 </div>
                 <p class="project-desc">基于 C/S 架构，在用户态模拟操作系统核心机制，重点探索存储优化与并发控制。</p>
                 <ul class="project-details">
@@ -657,7 +684,7 @@
             <div class="project-item">
                 <div class="project-header">
                     <h3 class="project-title">MIPS-Lite：五级流水线处理器核</h3>
-                    <span class="project-role">独立开发</span>
+                    <!-- <span class="project-role">独立开发</span>  -->
                 </div>
                 <p class="project-desc">从 RTL 级出发，完整实现支持 56 条 MIPS32 指令的五级流水线 CPU 核。</p>
                 <ul class="project-details">
@@ -672,34 +699,61 @@
         </section>
 
         <section id="awards" class="card">
-            <h2 class="section-title"><i class="fas fa-medal"></i> 竞赛与奖项 (Competitions)</h2>
+            <h2 class="section-title"><i class="fas fa-medal"></i> 荣誉与奖项 (Honors & Awards)</h2>
 
             <div class="awards-grid">
+
                 <div>
                     <div class="award-category-title"><i class="fas fa-crown" style="color: var(--accent-yellow);"></i>
-                        重点国家级竞赛</div>
+                        国家级竞赛</div>
                     <div class="award-box national">
-                        <span>睿抗机器人开发者大赛 (RoboCom)</span>
+                        <span>蓝桥杯全国软件和信息技术大赛<br><span class="award-subtitle">2025年 · C++ A组</span></span>
+                        <span class="award-badge nat-badge">国家三等奖</span>
+                    </div>
+                    <div class="award-box national">
+                        <span>睿抗机器人开发者大赛 (RoboCom)<br><span class="award-subtitle">2024年 · “编程技能”赛道</span></span>
                         <span class="award-badge nat-badge">国家二等奖</span>
                     </div>
                     <div class="award-box national">
-                        <span>蓝桥杯全国软件和信息技术专业人才大赛 (C/C++ A组)</span>
+                        <span>亚太数学建模大赛<br><span class="award-subtitle">2024年 · APMCM</span></span>
                         <span class="award-badge nat-badge">国家三等奖</span>
                     </div>
                 </div>
 
                 <div>
                     <div class="award-category-title"><i class="fas fa-star" style="color: var(--primary-blue);"></i>
-                        省级与专业竞赛</div>
+                        省级与专业赛</div>
                     <div class="award-box provincial">
-                        <span>全国大学生数学竞赛</span>
+                        <span>全国大学生数学竞赛<br><span class="award-subtitle">2025年 · 省级赛区</span></span>
                         <span class="award-badge pro-badge">省一等奖</span>
                     </div>
                     <div class="award-box provincial">
-                        <span>河北省大学生程序设计竞赛 (XCPC 体系)</span>
+                        <span>河北省大学生程序设计竞赛<br><span class="award-subtitle">2024、2025年 · 连续两年拿奖</span></span>
                         <span class="award-badge pro-badge">省银奖</span>
                     </div>
+                    <div class="award-box provincial">
+                        <span>“百度之星”程序设计大赛<br><span class="award-subtitle">2024年 · Astar</span></span>
+                        <span class="award-badge pro-badge">省三等奖</span>
+                    </div>
                 </div>
+
+                <div>
+                    <div class="award-category-title"><i class="fas fa-bookmark"
+                            style="color: var(--accent-purple);"></i> 荣誉与奖学金</div>
+                    <div class="award-box university">
+                        <span>校级三好学生<br><span class="award-subtitle">2023-2024 学年</span></span>
+                        <span class="award-badge uni-badge">荣誉称号</span>
+                    </div>
+                    <div class="award-box university">
+                        <span>校级二等、三等学业奖学金<br><span class="award-subtitle">综合素质评定</span></span>
+                        <span class="award-badge uni-badge">多次获得</span>
+                    </div>
+                    <div class="award-box university">
+                        <span>校级科创奖学金<br><span class="award-subtitle">科技创新专项</span></span>
+                        <span class="award-badge uni-badge">专项奖学金</span>
+                    </div>
+                </div>
+
             </div>
 
             <div
@@ -714,16 +768,16 @@
             <div style="display: flex; flex-direction: column; gap: 15px;">
                 <div>
                     <strong style="color: var(--dark-blue);"><i class="fas fa-code"></i> 编程语言：</strong>
-                    <span class="tag">C/C++</span> <span class="tag">Verilog</span> <span class="tag">Python</span>
+                    <span class="tag">C/C++</span> <span class="tag">Java</span> <span class="tag">Python</span>
                 </div>
                 <div>
                     <strong style="color: var(--dark-blue);"><i class="fas fa-terminal"></i> 系统开发：</strong>
-                    <span class="tag">Linux 环境编程</span> <span class="tag">多线程并发控制</span> <span class="tag">内存管理</span>
+                    <span class="tag">Android移动开发</span> <span class="tag">Web应用开发</span> <span class="tag">深度学习</span>
                 </div>
                 <div>
                     <strong style="color: var(--dark-blue);"><i class="fas fa-brain"></i> 基础理论：</strong>
-                    <span class="tag">数据结构与算法</span> <span class="tag">操作系统机制</span> <span class="tag">编译原理</span> <span
-                        class="tag">数据库原理</span>
+                    <span class="tag">数据结构与算法</span> <span class="tag">操作系统机制</span> <span class="tag">计算机组成原理</span>
+                    <span class="tag">数据库原理</span>
                 </div>
             </div>
         </section>
