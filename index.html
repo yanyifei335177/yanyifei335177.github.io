@@ -384,6 +384,11 @@
             align-items: baseline;
             margin-bottom: 10px;
         }
+        /* 项目链接悬停效果 */
+        .project-header a:hover {
+            color: var(--primary-blue) !important;
+            transform: scale(1.2);
+        }
 
         .project-title {
             font-size: 1.3em;
@@ -913,22 +918,28 @@
         <section id="projects" class="card">
             <h2 class="section-title"><i class="fas fa-project-diagram"></i> 项目经历 (Projects)</h2>
 
-            <div class="project-item">
-                <div class="project-header">
+        <div class="project-item">
+            <div class="project-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
                     <h3 class="project-title">Mini-Kernel：用户态微内核仿真系统</h3>
-                </div>
-                <p class="project-desc">基于 C/S 架构，在用户态模拟操作系统核心机制，重点探索存储优化与并发控制。</p>
-                <ul class="project-details">
-                    <li><strong>架构解耦：</strong> 设计了基于共享内存的异步消息队列，成功解耦 GUI 与内核进程。</li>
-                    <li><strong>存储引擎优化：</strong> 为自研 FAT 文件系统设计了采用 <span class="highlight-text">Write-Back 策略的 LRU
-                            缓冲池</span>，将 I/O 次数降低了约 40%。</li>
-                    <li><strong>并发控制：</strong> 引入读者-写者锁（RW-Lock）机制，解决多用户并发访问冲突，提升系统吞吐量。</li>
-                </ul>
-                <div style="margin-top: 15px;">
-                    <span class="tag">C/C++</span> <span class="tag">Operating System</span> <span class="tag">LRU
-                        Buffer Pool</span> <span class="tag">Concurrency</span>
+                    <a href="https://github.com/YF-Yan/Mini_kernel" target="_blank" title="查看源代码"
+                        style="color: var(--text-sub); font-size: 1.2em; transition: color 0.3s;">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
+            <p class="project-desc">基于 C/S 架构，在用户态模拟操作系统核心机制，重点探索存储优化与并发控制。</p>
+            <ul class="project-details">
+                <li><strong>架构解耦：</strong> 设计了基于共享内存的异步消息队列，成功解耦 GUI 与内核进程。</li>
+                <li><strong>存储引擎优化：</strong> 为自研 FAT 文件系统设计了采用 <span class="highlight-text">Write-Back 策略的 LRU 缓冲池</span>，将 I/O
+                    次数降低了约 40%。</li>
+                <li><strong>并发控制：</strong> 引入读者-写者锁（RW-Lock）机制，解决多用户并发访问冲突，提升系统吞吐量。</li>
+            </ul>
+            <div style="margin-top: 15px;">
+                <span class="tag">C/C++</span> <span class="tag">Operating System</span> <span class="tag">LRU Buffer
+                    Pool</span> <span class="tag">Concurrency</span>
+            </div>
+        </div>
 
             <div class="project-item">
                 <div class="project-header">
