@@ -785,7 +785,15 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-brand">Yan<span>Yifei</span></div>
+        <!-- <div class="nav-brand">Yan<span>Yifei</span></div> -->
+        <div class="nav-brand" style="display: flex; align-items: center; gap: 8px;">
+            <div>Yan<span>Yifei</span></div>
+            <audio id="nav-audio" src="caidan.mp3" preload="auto"></audio>
+            <button id="nav-audio-btn" onclick="toggleNavAudio()" title="播放专属音频"
+                style="background: #EFF6FF; border: none; cursor: pointer; color: var(--primary-blue); font-size: 0.6em; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                <i class="fas fa-music"></i>
+            </button>
+        </div>
         <div class="nav-links">
             <a href="#about"><i class="fas fa-user"></i> 关于我</a>
             <a href="#education"><i class="fas fa-graduation-cap"></i> 教育背景</a>
@@ -816,9 +824,8 @@
             <h2 class="section-title"><i class="fas fa-id-card"></i> 关于我 (About Me)</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>你好！我是闫一飞，目前是东北大学秦皇岛分校计算机专业的本科生。我始终以 <strong>“通过构建来理解，通过优化来探究”</strong>
-                        的理念驱动学习。我对计算机底层系统（操作系统、计算机体系结构、数据库存储引擎）以及算法设计有着浓厚的兴趣。</p>
-                    <p>目前，我正在积极寻找计算机系统/数据库方向的研究生保研机会。在业余时间，我热衷于参与各类算法竞赛（XCPC、蓝桥杯等），享受在有限时间内编写低复杂度、高鲁棒性代码的过程。</p>
+                    <p>你好！本人现就读于东北大学秦皇岛分校计算机科学与技术专业。我对计算机底层系统（操作系统、计算机体系结构、数据库存储引擎）以及算法设计有着浓厚的兴趣。</p>
+                    <p>在业余时间，我热衷于参与各类算法竞赛（XCPC、蓝桥杯等），享受在有限时间内编写低复杂度、高鲁棒性代码的过程。</p>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight-box">
@@ -840,7 +847,7 @@
                 <div class="school-logo-icon"><i class="fas fa-graduation-cap"></i></div>
                 <div class="school-info-text">
                     <h3>东北大学秦皇岛分校 (NEUQ)</h3>
-                    <p>学士，计算机科学与技术专业 | 2023.09 - 2027.07 预期</p>
+                    <p>学士，计算机科学与技术专业 | 2023.09 - 2027.07 </p>
                 </div>
             </div>
 
@@ -1222,6 +1229,41 @@
 
         // 页面加载完成后启动
         window.onload = initCarousel;
+
+        // =========================================
+            // 页头彩蛋音频播放控制逻辑
+            // =========================================
+            const navAudio = document.getElementById('nav-audio');
+            const navAudioBtn = document.getElementById('nav-audio-btn');
+            let isNavAudioPlaying = false;
+
+            function toggleNavAudio() {
+                if (isNavAudioPlaying) {
+                    navAudio.pause();
+                    // 暂停时恢复原来的图标和颜色
+                    navAudioBtn.innerHTML = '<i class="fas fa-music"></i>';
+                    navAudioBtn.style.color = 'var(--primary-blue)';
+                    navAudioBtn.style.backgroundColor = '#EFF6FF';
+                    navAudioBtn.style.transform = 'scale(1)';
+                } else {
+                    navAudio.play();
+                    // 播放时变成动感的粉色，并稍微放大
+                    navAudioBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    navAudioBtn.style.color = 'white';
+                    navAudioBtn.style.backgroundColor = 'var(--accent-pink)';
+                    navAudioBtn.style.transform = 'scale(1.1)';
+                }
+                isNavAudioPlaying = !isNavAudioPlaying;
+            }
+
+            // 监听音频播放结束事件，自动恢复按钮状态
+            navAudio.addEventListener('ended', function () {
+                isNavAudioPlaying = false;
+                navAudioBtn.innerHTML = '<i class="fas fa-music"></i>';
+                navAudioBtn.style.color = 'var(--primary-blue)';
+                navAudioBtn.style.backgroundColor = '#EFF6FF';
+                navAudioBtn.style.transform = 'scale(1)';
+            });
     </script>
 </body>
 
