@@ -119,13 +119,24 @@
 
         .profile-img {
             width: 160px;
-            height: 160px;
-            border-radius: 50%;
+            height: 200px;
+            
+            /* 关键修改：从 50% 变成 32px 的圆角矩形（类似苹果 App 图标的超椭圆） */
+            border-radius: 32px; 
+            
             object-fit: cover;
             object-position: 25% 25%;
             border: 4px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
+            
+            /* 加上了 box-shadow 的动画过渡，让悬浮效果更顺滑 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+
+        /* 鼠标放上去时，不仅放大，阴影也会加深，立体感拉满 */
+        .profile-img:hover {
+            transform: scale(1.05) translateY(-5px); /* 放大并微微上浮 */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .profile-img:hover {
@@ -847,17 +858,20 @@
             <h2 class="section-title"><i class="fas fa-id-card"></i> 关于我 (About Me)</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>你好！本人现就读于东北大学秦皇岛分校计算机科学与技术专业。我对计算机底层系统（操作系统、计算机体系结构、数据库存储引擎）以及算法设计有着浓厚的兴趣。</p>
-                    <p>在业余时间，我热衷于参与各类算法竞赛（XCPC、蓝桥杯等），享受在有限时间内编写低复杂度、高鲁棒性代码的过程。</p>
+                    <p>你好！我是<strong>闫一飞</strong>，现就读于东北大学（秦皇岛）计算机科学与技术专业。我对计算机科学有着纯粹的热爱，并始终保持着扎实的专业基础。</p>
+                    <p>我热衷于探索技术的深度与广度：一方面我喜欢钻研<strong>底层系统</strong>，探究操作系统与处理器背后的运行机制；另一方面，我也积极拥抱<strong>人工智能</strong>，对大模型和自然语言处理（NLP）有着浓厚的兴趣与实践经验。
+                    </p>
+                    <p>在业余时间，我是一名算法竞赛爱好者。我非常享受在紧张的竞技中，思考并编写出低复杂度、高鲁棒性的优雅代码的过程。</p>
                 </div>
                 <div class="about-highlights">
-                    <div class="highlight-box">
-                        <h4><i class="fas fa-layer-group" style="color:var(--primary-blue)"></i> 系统级开发能力</h4>
-                        <p>熟悉OS内核机制与体系结构，具备独立构建底层仿真系统的能力。</p>
+                    
+                    <div class="highlight-box purple">
+                        <h4><i class="fas fa-brain" style="color:#8b5cf6"></i> 人工智能与 NLP</h4>
+                        <p>深入理解 Transformer 等深度学习模型架构，拥有自回归文本生成系统的开发与落地经验。</p>
                     </div>
                     <div class="highlight-box green">
-                        <h4><i class="fas fa-tachometer-alt" style="color:var(--accent-green)"></i> 算法与性能调优</h4>
-                        <p>长期的 CF 算法训练，追求极致的时间复杂度与代码鲁棒性。</p>
+                        <h4><i class="fas fa-code" style="color:var(--accent-green)"></i> 算法与性能调优</h4>
+                        <p>具备扎实的算法功底并在多项竞赛中获奖，追求极致的时间复杂度与代码逻辑的严谨性。</p>
                     </div>
                 </div>
             </div>
@@ -938,7 +952,55 @@
 
         <section id="projects" class="card">
             <h2 class="section-title"><i class="fas fa-project-diagram"></i> 项目经历 (Projects)</h2>
-
+            <div class="project-item">
+                <div class="project-header">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <h3 class="project-title">GPT-Poet：基于深度 Transformer 的古诗生成系统</h3>
+                        <a href="https://github.com/YF-Yan/-Transformer-" target="_blank" title="查看源代码"
+                            style="color: var(--text-sub); font-size: 1.2em; transition: color 0.3s;">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <p class="project-desc">基于 PyTorch 开发的自动化诗歌生成系统，通过对近 15 万首高量古诗词语料的深度建模，实现高文学性与严格格律的文本生成。</p>
+                <ul class="project-details">
+                    <li><strong>自回归架构：</strong> 采用深度 Transformer Decoder 架构，配合 <span class="highlight-text">下三角因果掩码 (Causal
+                            Mask)</span> 阻断前向信息泄露，实现标准的从左至右逐字生成逻辑。</li>
+                    <li><strong>生成策略优化：</strong> 自主实现带温度控制的 <span class="highlight-text">Top-P 核采样 (Nucleus Sampling)</span>
+                        与重复惩罚机制，有效解决了传统模型的“复读机”问题，提升了文本多样性。</li>
+                    <li><strong>控制与可解释性：</strong> 通过序列掩码实现精准的诗词格式控制，并利用预测概率热力图对模型内部决策逻辑进行可视化分析。</li>
+                </ul>
+            
+                <div style="display: flex; gap: 15px; margin: 20px 0; overflow-x: auto; padding-bottom: 5px;">
+                    <figure style="margin: 0; flex: 1; min-width: 220px; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="image/report_loss_curve.png" alt="Loss 曲线"
+                            style="width: 100%; border-radius: 8px; border: 1px solid #E5E7EB; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <figcaption style="text-align: center; font-size: 0.85em; color: var(--text-sub); margin-top: 8px;">模型 Loss
+                            损失曲线</figcaption>
+                    </figure>
+            
+                    <figure style="margin: 0; flex: 1; min-width: 220px; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="image/report_ppl_curve.png" alt="PPL 曲线"
+                            style="width: 100%; border-radius: 8px; border: 1px solid #E5E7EB; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <figcaption style="text-align: center; font-size: 0.85em; color: var(--text-sub); margin-top: 8px;">模型 PPL
+                            困惑度曲线</figcaption>
+                    </figure>
+            
+                    <figure style="margin: 0; flex: 1; min-width: 220px; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <img src="image/report_attention_heatmap.png" alt="预测概率热力图"
+                            style="width: 100%; border-radius: 8px; border: 1px solid #E5E7EB; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <figcaption style="text-align: center; font-size: 0.85em; color: var(--text-sub); margin-top: 8px;">
+                            生成阶段预测概率热力图</figcaption>
+                    </figure>
+                </div>
+                <div style="margin-top: 15px;">
+                    <span class="tag">PyTorch</span> <span class="tag">Transformer</span> <span class="tag">NLP</span> <span
+                        class="tag">Generative AI</span>
+                </div>
+            </div>
         <div class="project-item">
             <div class="project-header">
                 <div style="display: flex; align-items: center; gap: 12px;">
@@ -1073,8 +1135,7 @@
 
             <div
                 style="margin-top: 20px; padding: 15px; background-color: #f8fafc; border-radius: 8px; font-size: 0.9em; color: var(--text-sub); border-left: 3px solid #94a3b8;">
-                <i class="fas fa-quote-left" style="color: #cbd5e1; margin-right: 5px;"></i> 长期的 Codeforces
-                刷题与算法竞赛训练，培养了我极致的代码落地能力和团队协作抗压能力。
+                <i class="fas fa-quote-left" style="color: #cbd5e1; margin-right: 5px;"></i> 💡 提示：可通过左侧缩略图或点击左右按钮浏览更多证书。
             </div>
         </section>
 
@@ -1087,7 +1148,7 @@
                 </div>
                 <div>
                     <strong style="color: var(--dark-blue);"><i class="fas fa-terminal"></i> 系统开发：</strong>
-                    <span class="tag">Android移动开发</span> <span class="tag">Web应用开发</span> <span class="tag">深度学习</span>
+                    <span class="tag">Android移动开发</span> <span class="tag">Web应用开发</span> <span class="tag">NLP</span>
                 </div>
                 <div>
                     <strong style="color: var(--dark-blue);"><i class="fas fa-brain"></i> 基础理论：</strong>
