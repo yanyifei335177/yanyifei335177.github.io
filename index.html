@@ -1144,8 +1144,65 @@
                 </div>
 
             </div>
-
             <div class="cert-carousel-section">
+                <div class="cert-carousel-header">
+                    <i class="fas fa-trophy"></i> 竞赛奖项展示
+                </div>
+                <div id="competition-gallery" class="carousel-container">
+                    <div class="carousel-layout">
+                        <div class="cert-nav-sidebar thumbnail-container"></div>
+                        <div class="carousel-view">
+                            <button class="nav-btn prev-btn cert-prev"><i class="fas fa-chevron-left"></i></button>
+                            <img class="carousel-img cert-image" src="" alt="证书图片" style="transition: opacity 0.15s;">
+                            <div class="cert-counter"><span class="cert-current-index">1</span> / <span
+                                    class="cert-total-count">-</span></div>
+                            <button class="nav-btn next-btn cert-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h4 class="cert-title-display cert-title">加载中...</h4>
+                        <p class="cert-desc-display cert-desc">加载中...</p>
+                        <div class="cert-tags-container">
+                            <span class="c-tag c-tag-date"><i class="fas fa-calendar-alt"></i> <span
+                                    class="cert-date">--</span></span>
+                            <span class="c-tag c-tag-type"><i class="fas fa-tag"></i> <span class="cert-type">--</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cert-carousel-section" style="margin-top: 30px; border-top: none; padding-top: 0;">
+                <div class="cert-carousel-header" style="color: var(--accent-pink);">
+                    <i class="fas fa-medal"></i> 荣誉称号与奖学金
+                </div>
+                <div id="honor-gallery" class="carousel-container">
+                    <div class="carousel-layout">
+                        <div class="cert-nav-sidebar thumbnail-container"></div>
+                        <div class="carousel-view">
+                            <button class="nav-btn prev-btn cert-prev"><i class="fas fa-chevron-left"></i></button>
+                            <img class="carousel-img cert-image" src="" alt="证书图片" style="transition: opacity 0.15s;">
+                            <div class="cert-counter"><span class="cert-current-index">1</span> / <span
+                                    class="cert-total-count">-</span></div>
+                            <button class="nav-btn next-btn cert-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <h4 class="cert-title-display cert-title">加载中...</h4>
+                        <p class="cert-desc-display cert-desc">加载中...</p>
+                        <div class="cert-tags-container">
+                            <span class="c-tag c-tag-date"><i class="fas fa-calendar-alt"></i> <span
+                                    class="cert-date">--</span></span>
+                            <span class="c-tag c-tag-type"><i class="fas fa-tag"></i> <span class="cert-type">--</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div
+                style="margin-top: 20px; padding: 15px; background-color: #f8fafc; border-radius: 8px; font-size: 0.9em; color: var(--text-sub); border-left: 3px solid #94a3b8;">
+                <i class="fas fa-quote-left" style="color: #cbd5e1; margin-right: 5px;"></i> 💡 提示：可通过左侧缩略图或点击左右按钮分类浏览更多证书。
+            </div>
+            <!-- <div class="cert-carousel-section">
                 <div class="cert-carousel-header">
                     <i class="fas fa-certificate"></i> 证书展示
                 </div>
@@ -1183,7 +1240,7 @@
             <div
                 style="margin-top: 20px; padding: 15px; background-color: #f8fafc; border-radius: 8px; font-size: 0.9em; color: var(--text-sub); border-left: 3px solid #94a3b8;">
                 <i class="fas fa-quote-left" style="color: #cbd5e1; margin-right: 5px;"></i> 💡 提示：可通过左侧缩略图或点击左右按钮浏览更多证书。
-            </div>
+            </div> -->
         </section>
 
         <section id="skills" class="card">
@@ -1214,161 +1271,341 @@
 
     <script>
         // 你配置好的证书数据仓库
-        const certificates = [
-            {
-                img: 'image/rkg2.png',
-                title: '睿抗 编程技能 国家三等奖',
-                desc: '睿抗机器人开发者大赛 (RoboCom)',
-                date: '2024年',
-                type: '竞赛奖项'
-            },
-            {
-                img: 'image/lqbg3.png',
-                title: '蓝桥杯 C++ A组 国家三等奖',
-                desc: '2025年蓝桥杯全国软件和信息技术专业人才大赛',
-                date: '2025年',
-                type: '竞赛奖项'
-            },
-            {
-                img: 'image/lqbs1.png',
-                title: '蓝桥杯 C++ A组 省一等奖',
-                desc: '2024年蓝桥杯全国软件和信息技术专业人才大赛',
-                date: '2024年',
-                type: '竞赛奖项'
-            },
-            {
-                img: 'image/yt3.png',
-                title: '亚太数学建模大赛 国家三等奖',
-                desc: '2024年亚太数学建模大赛 (APMCM)',
-                date: '2024年',
-                type: '竞赛奖项'
-            },
-            {
-                img: 'image/shxs.png',
-                title: '校级三好学生',
-                desc: '2023-2024 学年校级三好学生称号',
-                date: '2024年',
-                type: '荣誉称号'
-            }
-        ];
+        const competitionData = [
+                { img: 'image/rkg2.png', title: '睿抗 编程技能 国家三等奖', desc: '睿抗机器人开发者大赛 (RoboCom)', date: '2024年', type: '竞赛奖项' },
+                { img: 'image/lqbg3.png', title: '蓝桥杯 C++ A组 国家三等奖', desc: '2025年蓝桥杯全国软件和信息技术专业人才大赛', date: '2025年', type: '竞赛奖项' },
+                { img: 'image/bdzx.jpg', title: ' 2025年百度之星初赛铜奖', desc: '2025百度之星', date: '2025年', type: '竞赛奖项' },
+                { img: 'image/lqbs1.png', title: '蓝桥杯 C++ A组 省一等奖', desc: '2024年蓝桥杯全国软件和信息技术专业人才大赛', date: '2024年', type: '竞赛奖项' },
+                { img: 'image/yt3.png', title: '亚太数学建模大赛 国家三等奖', desc: '2024年亚太数学建模大赛 (APMCM)', date: '2024年', type: '竞赛奖项' },
+                { img: 'image/hbcpc.png', title: '河北省大学生程序设计竞赛二等奖', desc: '2025HBCPC', date: '2025年', type: '竞赛奖项' }
+            ];
 
-        let currentIndex = 0;
-        let autoPlayTimer = null; // 自动轮播定时器
+            // 2. 荣誉称号数据
+            const honorData = [
+                { img: 'image/shxs.png', title: '校级三好学生', desc: '2023-2024 学年校级三好学生称号', date: '2024年', type: '荣誉称号' },
+                { img: 'image/2024kc.png', title: '科创奖学金', desc: '2023-2024 学年科创奖学金', date: '2024年', type: '奖学金' },
+                { img: 'image/2024jsj1.png', title: '学业奖学金', desc: '2023-2024 学年第一学期学业奖学金', date: '2024年', type: '奖学金' },
+                { img: 'image/2024jsj2.png', title: '学业奖学金', desc: '2023-2024 学年第二学期学业奖学金', date: '2024年', type: '奖学金' },
+                { img: 'image/2025jsj2.png', title: '学业奖学金', desc: '2024-2025 学年第二学期学业奖学金', date: '2025年', type: '奖学金' }
+            ];
 
-        // 获取页面元素
-        const imgEl = document.getElementById('cert-image');
-        const titleEl = document.getElementById('cert-title');
-        const descEl = document.getElementById('cert-desc');
-        const dateEl = document.getElementById('cert-date');
-        const typeEl = document.getElementById('cert-type');
-        const currIndexEl = document.getElementById('cert-current-index');
-        const totalCountEl = document.getElementById('cert-total-count');
-        const thumbContainer = document.getElementById('thumbnail-container');
+            // 3. 通用轮播图初始化函数
+            function createGallery(containerId, data) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
 
-        // 初始化
-        function initCarousel() {
-            totalCountEl.textContent = certificates.length;
+                let currentIndex = 0;
+                let autoPlayTimer = null;
 
-            // 给缩略图容器加个相对定位，为了后续精确计算内部滚动距离
-            thumbContainer.style.position = 'relative';
+                // 获取该容器内部的元素
+                const imgEl = container.querySelector('.cert-image');
+                const titleEl = container.querySelector('.cert-title');
+                const descEl = container.querySelector('.cert-desc');
+                const dateEl = container.querySelector('.cert-date');
+                const typeEl = container.querySelector('.cert-type');
+                const currIndexEl = container.querySelector('.cert-current-index');
+                const totalCountEl = container.querySelector('.cert-total-count');
+                const thumbContainer = container.querySelector('.thumbnail-container');
+                const prevBtn = container.querySelector('.cert-prev');
+                const nextBtn = container.querySelector('.cert-next');
 
-            generateThumbnails();
-            renderCert(0);
-            startAutoPlay();
-        }
+                function init() {
+                    totalCountEl.textContent = data.length;
+                    thumbContainer.style.position = 'relative';
 
-        // 动态生成左侧缩略图
-        function generateThumbnails() {
-            thumbContainer.innerHTML = ''; // 清空
-            certificates.forEach((cert, index) => {
-                const thumbDiv = document.createElement('div');
-                thumbDiv.className = `thumbnail-item ${index === currentIndex ? 'active' : ''}`;
-                thumbDiv.id = `thumb-${index}`;
-                // 点击缩略图时直接跳转
-                thumbDiv.onclick = () => goToCert(index);
+                    generateThumbnails();
+                    renderCert(0);
+                    startAutoPlay();
 
-                thumbDiv.innerHTML = `
+                    // 绑定按钮事件
+                    prevBtn.onclick = () => changeCert(-1);
+                    nextBtn.onclick = () => changeCert(1);
+
+                    // 鼠标悬停暂停轮播
+                    container.onmouseenter = pauseAutoPlay;
+                    container.onmouseleave = startAutoPlay;
+                }
+
+                function generateThumbnails() {
+                    thumbContainer.innerHTML = '';
+                    data.forEach((cert, index) => {
+                        const thumbDiv = document.createElement('div');
+                        thumbDiv.className = `thumbnail-item ${index === currentIndex ? 'active' : ''}`;
+                        thumbDiv.id = `${containerId}-thumb-${index}`;
+                        thumbDiv.onclick = () => goToCert(index);
+
+                        thumbDiv.innerHTML = `
                         <img src="${cert.img}" alt="缩略图">
                         <div class="thumb-title">${cert.type}</div>
                     `;
-                thumbContainer.appendChild(thumbDiv);
-            });
-        }
+                        thumbContainer.appendChild(thumbDiv);
+                    });
+                }
 
-        // 渲染指定的证书
-        function renderCert(index) {
-            const cert = certificates[index];
+                function renderCert(index) {
+                    const cert = data[index];
 
-            // 更新缩略图高亮状态
-            document.querySelectorAll('.thumbnail-item').forEach(el => el.classList.remove('active'));
-            const activeThumb = document.getElementById(`thumb-${index}`);
+                    // 更新缩略图高亮并滚动对齐 (保留了你原来的逻辑)
+                    container.querySelectorAll('.thumbnail-item').forEach(el => el.classList.remove('active'));
+                    const activeThumb = container.querySelector(`#${containerId}-thumb-${index}`);
 
-            if (activeThumb) {
-                activeThumb.classList.add('active');
+                    if (activeThumb) {
+                        activeThumb.classList.add('active');
+                        thumbContainer.scrollTo({
+                            top: activeThumb.offsetTop - thumbContainer.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
 
-                // 【修复跳页Bug的关键点】：
-                // 仅修改容器内部的 scrollTop，绝对不会触发整个网页的滚动
-                thumbContainer.scrollTo({
-                    top: activeThumb.offsetTop - thumbContainer.offsetTop,
-                    behavior: 'smooth'
-                });
+                    // 淡入淡出切换
+                    imgEl.style.opacity = 0.2;
+                    setTimeout(() => {
+                        imgEl.src = cert.img;
+                        imgEl.alt = cert.title;
+                        titleEl.textContent = cert.title;
+                        descEl.textContent = cert.desc;
+                        dateEl.textContent = cert.date;
+                        typeEl.textContent = cert.type;
+                        currIndexEl.textContent = index + 1;
+
+                        imgEl.style.opacity = 1;
+                    }, 150);
+                }
+
+                function changeCert(step) {
+                    currentIndex += step;
+                    if (currentIndex >= data.length) currentIndex = 0;
+                    else if (currentIndex < 0) currentIndex = data.length - 1;
+
+                    renderCert(currentIndex);
+                    resetAutoPlay();
+                }
+
+                function goToCert(index) {
+                    if (currentIndex === index) return;
+                    currentIndex = index;
+                    renderCert(currentIndex);
+                    resetAutoPlay();
+                }
+
+                function startAutoPlay() {
+                    autoPlayTimer = setInterval(() => changeCert(1), 1500);
+                }
+
+                function pauseAutoPlay() {
+                    clearInterval(autoPlayTimer);
+                }
+
+                function resetAutoPlay() {
+                    pauseAutoPlay();
+                    startAutoPlay();
+                }
+
+                init();
             }
 
-            // 淡出效果
-            imgEl.style.opacity = 0.2;
-            setTimeout(() => {
-                imgEl.src = cert.img;
-                imgEl.alt = cert.title;
-                titleEl.textContent = cert.title;
-                descEl.textContent = cert.desc;
-                dateEl.textContent = cert.date;
-                typeEl.textContent = cert.type;
-                currIndexEl.textContent = index + 1;
+            // 页面加载完成后，分别初始化两个轮播区
+            window.onload = () => {
+                createGallery('competition-gallery', competitionData);
+                createGallery('honor-gallery', honorData);
+            };
+        // const certificates = [
+        //     {
+        //         img: 'image/rkg2.png',
+        //         title: '睿抗 编程技能 国家三等奖',
+        //         desc: '睿抗机器人开发者大赛 (RoboCom)',
+        //         date: '2024年',
+        //         type: '竞赛奖项'
+        //     },
+        //     {
+        //         img: 'image/lqbg3.png',
+        //         title: '蓝桥杯 C++ A组 国家三等奖',
+        //         desc: '2025年蓝桥杯全国软件和信息技术专业人才大赛',
+        //         date: '2025年',
+        //         type: '竞赛奖项'
+        //     },
+        //     {
+        //         img: 'image/bdzx.jpg',
+        //         title: ' 2025年百度之星初赛铜奖',
+        //         desc: '2025百度之星',
+        //         date: '2025年',
+        //         type: '竞赛奖项'
+        //     },
+        //     {
+        //         img: 'image/lqbs1.png',
+        //         title: '蓝桥杯 C++ A组 省一等奖',
+        //         desc: '2024年蓝桥杯全国软件和信息技术专业人才大赛',
+        //         date: '2024年',
+        //         type: '竞赛奖项'
+        //     },
+        //     {
+        //         img: 'image/yt3.png',
+        //         title: '亚太数学建模大赛 国家三等奖',
+        //         desc: '2024年亚太数学建模大赛 (APMCM)',
+        //         date: '2024年',
+        //         type: '竞赛奖项'
+        //     },
+        //     {
+        //         img: 'image/hbcpc.png',
+        //         title: '河北省大学生程序设计竞赛二等奖',
+        //         desc: '2025HBCPC',
+        //         date: '2025年',
+        //         type: '竞赛奖项'
+        //     },
+        //     {
+        //         img: 'image/shxs.png',
+        //         title: '校级三好学生',
+        //         desc: '2023-2024 学年校级三好学生称号',
+        //         date: '2024年',
+        //         type: '荣誉称号'
+        //     },
+        //     {
+        //         img: 'image/2024kc.png',
+        //         title: '科创奖学金',
+        //         desc: '2023-2024 学年科创奖学金',
+        //         date: '2024年',
+        //         type: '奖学金'
+        //     },
+        //     {
+        //         img: 'image/2024jsj1.png',
+        //         title: '学业奖学金',
+        //         desc: '2023-2024 学年第一学期学业奖学金',
+        //         date: '2024年',
+        //         type: '奖学金'
+        //     },
+        //     {
+        //         img: 'image/2024jsj2.png',
+        //         title: '学业奖学金',
+        //         desc: '2023-2024 学年第二学期学业奖学金',
+        //         date: '2024年',
+        //         type: '奖学金'
+        //     },
+        //     {
+        //         img: 'image/2025jsj2.png',
+        //         title: '学业奖学金',
+        //         desc: '2024-2025 学年第二学期学业奖学金',
+        //         date: '2025年',
+        //         type: '奖学金'
+        //     }
+        // ];
 
-                // 淡入效果
-                imgEl.style.opacity = 1;
-            }, 150);
-        }
+        // let currentIndex = 0;
+        // let autoPlayTimer = null; // 自动轮播定时器
 
-        // 前后按钮切换
-        function changeCert(step) {
-            currentIndex += step;
-            if (currentIndex >= certificates.length) currentIndex = 0;
-            else if (currentIndex < 0) currentIndex = certificates.length - 1;
+        // // 获取页面元素
+        // const imgEl = document.getElementById('cert-image');
+        // const titleEl = document.getElementById('cert-title');
+        // const descEl = document.getElementById('cert-desc');
+        // const dateEl = document.getElementById('cert-date');
+        // const typeEl = document.getElementById('cert-type');
+        // const currIndexEl = document.getElementById('cert-current-index');
+        // const totalCountEl = document.getElementById('cert-total-count');
+        // const thumbContainer = document.getElementById('thumbnail-container');
 
-            renderCert(currentIndex);
-            resetAutoPlay(); // 手动切换后，重新计算自动轮播时间
-        }
+        // // 初始化
+        // function initCarousel() {
+        //     totalCountEl.textContent = certificates.length;
 
-        // 点击缩略图直接跳转
-        function goToCert(index) {
-            if (currentIndex === index) return;
-            currentIndex = index;
-            renderCert(currentIndex);
-            resetAutoPlay();
-        }
+        //     // 给缩略图容器加个相对定位，为了后续精确计算内部滚动距离
+        //     thumbContainer.style.position = 'relative';
 
-        // 自动轮播控制
-        function startAutoPlay() {
-            // 每隔 3.5 秒自动切换下一张
-            autoPlayTimer = setInterval(() => {
-                changeCert(1);
-            }, 1500);
-        }
+        //     generateThumbnails();
+        //     renderCert(0);
+        //     startAutoPlay();
+        // }
 
-        // 暂停轮播 (鼠标悬停时触发)
-        function pauseAutoPlay() {
-            clearInterval(autoPlayTimer);
-        }
+        // // 动态生成左侧缩略图
+        // function generateThumbnails() {
+        //     thumbContainer.innerHTML = ''; // 清空
+        //     certificates.forEach((cert, index) => {
+        //         const thumbDiv = document.createElement('div');
+        //         thumbDiv.className = `thumbnail-item ${index === currentIndex ? 'active' : ''}`;
+        //         thumbDiv.id = `thumb-${index}`;
+        //         // 点击缩略图时直接跳转
+        //         thumbDiv.onclick = () => goToCert(index);
 
-        // 重置轮播倒计时
-        function resetAutoPlay() {
-            pauseAutoPlay();
-            startAutoPlay();
-        }
+        //         thumbDiv.innerHTML = `
+        //                 <img src="${cert.img}" alt="缩略图">
+        //                 <div class="thumb-title">${cert.type}</div>
+        //             `;
+        //         thumbContainer.appendChild(thumbDiv);
+        //     });
+        // }
 
-        // 页面加载完成后启动
-        window.onload = initCarousel;
+        // // 渲染指定的证书
+        // function renderCert(index) {
+        //     const cert = certificates[index];
+
+        //     // 更新缩略图高亮状态
+        //     document.querySelectorAll('.thumbnail-item').forEach(el => el.classList.remove('active'));
+        //     const activeThumb = document.getElementById(`thumb-${index}`);
+
+        //     if (activeThumb) {
+        //         activeThumb.classList.add('active');
+
+        //         // 【修复跳页Bug的关键点】：
+        //         // 仅修改容器内部的 scrollTop，绝对不会触发整个网页的滚动
+        //         thumbContainer.scrollTo({
+        //             top: activeThumb.offsetTop - thumbContainer.offsetTop,
+        //             behavior: 'smooth'
+        //         });
+        //     }
+
+        //     // 淡出效果
+        //     imgEl.style.opacity = 0.2;
+        //     setTimeout(() => {
+        //         imgEl.src = cert.img;
+        //         imgEl.alt = cert.title;
+        //         titleEl.textContent = cert.title;
+        //         descEl.textContent = cert.desc;
+        //         dateEl.textContent = cert.date;
+        //         typeEl.textContent = cert.type;
+        //         currIndexEl.textContent = index + 1;
+
+        //         // 淡入效果
+        //         imgEl.style.opacity = 1;
+        //     }, 150);
+        // }
+
+        // // 前后按钮切换
+        // function changeCert(step) {
+        //     currentIndex += step;
+        //     if (currentIndex >= certificates.length) currentIndex = 0;
+        //     else if (currentIndex < 0) currentIndex = certificates.length - 1;
+
+        //     renderCert(currentIndex);
+        //     resetAutoPlay(); // 手动切换后，重新计算自动轮播时间
+        // }
+
+        // // 点击缩略图直接跳转
+        // function goToCert(index) {
+        //     if (currentIndex === index) return;
+        //     currentIndex = index;
+        //     renderCert(currentIndex);
+        //     resetAutoPlay();
+        // }
+
+        // // 自动轮播控制
+        // function startAutoPlay() {
+        //     // 每隔 3.5 秒自动切换下一张
+        //     autoPlayTimer = setInterval(() => {
+        //         changeCert(1);
+        //     }, 1500);
+        // }
+
+        // // 暂停轮播 (鼠标悬停时触发)
+        // function pauseAutoPlay() {
+        //     clearInterval(autoPlayTimer);
+        // }
+
+        // // 重置轮播倒计时
+        // function resetAutoPlay() {
+        //     pauseAutoPlay();
+        //     startAutoPlay();
+        // }
+
+        // // 页面加载完成后启动
+        // window.onload = initCarousel;
 
        // =========================================
         // 页头彩蛋音频 - 高响应即时播放逻辑
