@@ -1400,8 +1400,10 @@
             }
 
             function startAutoPlay() {
-                autoPlayTimer = setInterval(() => changeCert(1), 2500);
-            }
+                    // 每次启动前，先斩断之前的定时器，防止它们打架！
+                    clearInterval(autoPlayTimer);
+                    autoPlayTimer = setInterval(() => changeCert(1), 2500);
+                }
 
             function pauseAutoPlay() {
                 clearInterval(autoPlayTimer);
